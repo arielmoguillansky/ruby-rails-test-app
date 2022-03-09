@@ -16,7 +16,7 @@ Things you may want to cover:
 
 * Configuration
   
-  1. Make sure you are using app's ruby version.  `rvm install 2.7.0` and `rvm use 2.7.0`
+  1. Make sure you are using app's ruby version..  `rvm install 2.7.0` and `rvm use 2.7.0`
   2. `bundle install`
   3. `rails server`
 
