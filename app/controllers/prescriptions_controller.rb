@@ -1,5 +1,7 @@
 class PrescriptionsController < ApplicationController
 
+  before_action :set_prescription, only: [:edit, :update, :show, :destroy]
+
   def index
   @prescriptions = Prescription.all
   end
@@ -19,15 +21,12 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-    @prescription = Prescription.find(params[:id])
   end
 
   def edit
-    @prescription = Prescription.find(params[:id])
   end
 
   def update 
-    @prescription = Prescription.find(params[:id])
     if @prescription.update(prescription_params)
       flash[:notice] = "Prescription was successfully edited"
       redirect_to prescription_path(@prescription)
@@ -37,13 +36,16 @@ class PrescriptionsController < ApplicationController
   end
 
   def destroy
-    @prescription = Prescription.find(params[:id])
     @prescription.destroy
     flash[:notice] = "Prescription successfully deleted"
     redirect_to prescriptions_path
   end
   
   private
+  def set_prescription
+    @prescription = Prescription.find(params[:id])
+  end
+
   def prescription_params
     params.require(:prescription).permit(:prescriptionType, :description)
   end
