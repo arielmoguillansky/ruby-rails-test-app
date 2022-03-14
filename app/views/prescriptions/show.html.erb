@@ -1,0 +1,9 @@
+<h1>Prescription</h1>
+<p>
+  Type: <%= @prescription.prescriptionType %><br />
+  Description: <%= @prescription.description %>
+</p>
+
+<%= link_to "Back", prescriptions_path%>
+
+<%= link_to "Edit", edit_prescription_path(@prescription)%>

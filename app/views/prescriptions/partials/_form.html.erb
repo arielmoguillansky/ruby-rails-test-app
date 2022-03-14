@@ -1,0 +1,28 @@
+<% if @prescription.errors.any? %>
+<h3>The following errors prevented description to be created</h3>
+  <ul>
+    <% @prescription.errors.full_messages.each do |msg| %>
+      <li>
+      <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @prescription do |p| %>
+
+  <p>
+    <%= p.label 'Prescription Type' %> <br />
+    <%= p.text_field :prescriptionType %>
+  </p>
+
+  <p>
+    <%= p.label :description %> <br />
+    <%= p.text_area :description %>
+  </p>
+
+  <p>
+    <%= p.submit :submit %>
+  </p>
+
+<%end%>
